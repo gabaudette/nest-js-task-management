@@ -23,7 +23,7 @@ export class JwtStategy extends PassportStrategy(Strategy) {
         const { username } = payload
         const user = await this.userRepository.findOne({ username })
 
-        if(!user) 
+        if (!user) 
             throw new UnauthorizedException()
         
         return user

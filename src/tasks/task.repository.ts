@@ -17,10 +17,10 @@ export class TaskRepository extends Repository<Task> {
 
         query.where('task.userId = :userId', { userId: user.id })
 
-        if(status) 
+        if (status) 
             query.andWhere('task.status = :status', { status })
         
-        if(search) 
+        if (search) 
             query.andWhere('(task.title LIKE :search OR task.description LIKE :search)', { search: `%${search}%` })
         
         try {
